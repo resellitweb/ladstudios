@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Descargar LadSafio Client</title>
+  <link rel="icon" type="image/png" href="https://i.imgur.com/byf5yG9.png" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
     * {
@@ -209,6 +210,17 @@
       const content = document.getElementById('zipper-text');
       content.classList.toggle('show');
     }
+        document.addEventListener('contextmenu', e => e.preventDefault());
+    document.addEventListener('keydown', e => {
+      if (
+        e.ctrlKey && ['u', 'U', 's', 'S', 'c', 'C'].includes(e.key) || // Ctrl+U, Ctrl+S, Ctrl+C
+        e.key === 'F12' ||
+        (e.ctrlKey && e.shiftKey && ['I', 'i', 'C', 'c', 'J', 'j'].includes(e.key)) // Ctrl+Shift+I/J/C
+      ) {
+        e.preventDefault();
+        return false;
+      }
+    });
   </script>
 </head>
 <body>
