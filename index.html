@@ -15,7 +15,7 @@
     }
 
     body {
-      background: linear-gradient(to bottom right, #cfd4d8, #adb5bd);
+      background: linear-gradient(to bottom right, #000000, #444);
       color: #2d3436;
       padding: 2rem;
     }
@@ -55,18 +55,18 @@
 
     p {
       font-size: 1.2rem;
-      color: #495057;
+      color: #ddd;
     }
 
     .container {
       max-width: 1000px;
       margin: 0 auto;
-      background: rgba(245, 245, 245, 0.35);
+      background: rgba(255, 255, 255, 0.1);
       backdrop-filter: blur(20px) saturate(180%) contrast(110%);
       -webkit-backdrop-filter: blur(20px) saturate(180%) contrast(110%);
       border-radius: 20px;
       padding: 2rem;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
       transition: transform 0.3s ease;
     }
 
@@ -118,7 +118,7 @@
     }
 
     .download-card {
-      background: rgba(245, 245, 245, 0.3);
+      background: rgba(255, 255, 255, 0.2);
       backdrop-filter: blur(15px) saturate(160%);
       -webkit-backdrop-filter: blur(15px) saturate(160%);
       border-radius: 16px;
@@ -146,15 +146,14 @@
 
     .macos-card::before,
     .linux-card::before {
-      content: 'Aún no listo
-      ';
+      content: 'Aún no listo';
       position: absolute;
       top: 10px;
       left: 0;
       right: 0;
       text-align: center;
       font-weight: bold;
-      color: #c0392b;
+      color: #e74c3c;
     }
 
     .zipper-toggle {
@@ -163,18 +162,19 @@
     }
 
     .zipper-btn {
-      background: linear-gradient(to right, #b2bec3, #dfe6e9);
+      background: linear-gradient(to right, #555, #999);
       border: none;
       border-radius: 50px;
       padding: 1rem 2rem;
       font-size: 1rem;
       cursor: pointer;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
       transition: all 0.5s ease;
+      color: white;
     }
 
     .zipper-btn:hover {
-      background: #ced6e0;
+      background: #777;
       transform: scale(1.1) rotate(-1deg);
     }
 
@@ -202,7 +202,7 @@
       text-align: center;
       margin-top: 4rem;
       font-size: 0.9rem;
-      color: #868e96;
+      color: #ccc;
     }
   </style>
   <script>
@@ -210,12 +210,12 @@
       const content = document.getElementById('zipper-text');
       content.classList.toggle('show');
     }
-        document.addEventListener('contextmenu', e => e.preventDefault());
+    document.addEventListener('contextmenu', e => e.preventDefault());
     document.addEventListener('keydown', e => {
       if (
-        e.ctrlKey && ['u', 'U', 's', 'S', 'c', 'C'].includes(e.key) || // Ctrl+U, Ctrl+S, Ctrl+C
+        e.ctrlKey && ['u', 'U', 's', 'S', 'c', 'C'].includes(e.key) ||
         e.key === 'F12' ||
-        (e.ctrlKey && e.shiftKey && ['I', 'i', 'C', 'c', 'J', 'j'].includes(e.key)) // Ctrl+Shift+I/J/C
+        (e.ctrlKey && e.shiftKey && ['I', 'i', 'C', 'c', 'J', 'j'].includes(e.key))
       ) {
         e.preventDefault();
         return false;
@@ -236,14 +236,12 @@
     <img class="screenshot" src="https://i.imgur.com/DYy0u5N.png" alt=" Screenshot">
 
     <div style="text-align: center;">
-      <a href="https://www.dropbox.com/scl/fi/2olfny5ofh8ngqgrjc83t/LadClient.exe?rlkey=dy1noulghl0voglnmr7asgii4&st=jk5mhy3p&dl=1
-" class="button" download>Descargar para Windows</a>
+      <a href="https://www.dropbox.com/scl/fi/2olfny5ofh8ngqgrjc83t/LadClient.exe?rlkey=dy1noulghl0voglnmr7asgii4&st=jk5mhy3p&dl=1" class="button" download>Descargar para Windows</a>
     </div>
 
     <div class="download-options">
       <div class="download-card">
-        <a href="https://www.dropbox.com/scl/fi/2olfny5ofh8ngqgrjc83t/LadClient.exe?rlkey=dy1noulghl0voglnmr7asgii4&st=jk5mhy3p&dl=1
-" download>
+        <a href="https://www.dropbox.com/scl/fi/2olfny5ofh8ngqgrjc83t/LadClient.exe?rlkey=dy1noulghl0voglnmr7asgii4&st=jk5mhy3p&dl=1" download>
           <img src="https://img.icons8.com/ios-filled/50/000000/windows8.png" alt="Windows">
         </a>
         <p>Windows</p>
@@ -261,7 +259,7 @@
     <div class="zipper-toggle">
       <button onclick="toggleZipper()" class="zipper-btn">🧷 Click-Actualizaciones</button>
       <div class="zipper-content" id="zipper-text">
-        <p>🔥 Únete a LadStudios: hacemos eventos de Minecraft únicos con staff dedicado y comunidad sana.LadSafio, inspirado en Eufonia Studios y Dedsafio 3, con rolplayers, fidelidad en los detalles y soporte eficiente. Contamos con launcher personalizado para usuarios premium y no premium, premios incluidos. Síguenos en <a href="https://www.youtube.com/@LadStudioOfficial" target="_blank">YouTube</a>, <a href="https://x.com/LadGameStudios" target="_blank">X</a> y entra al <a href="https://discord.gg/EVJkkJ2fD6" target="_blank">Discord</a>. ¡Te esperamos! 👾</p>
+        <p>🔥 Únete a LadStudios: hacemos eventos de Minecraft únicos con staff dedicado y comunidad sana. LadSafio, inspirado en Eufonia Studios y Dedsafio 3, con rolplayers, fidelidad en los detalles y soporte eficiente. Contamos con launcher personalizado para usuarios premium y no premium, premios incluidos. Síguenos en <a href="https://www.youtube.com/@LadStudioOfficial" target="_blank">YouTube</a>, <a href="https://x.com/LadGameStudios" target="_blank">X</a> y entra al <a href="https://discord.gg/EVJkkJ2fD6" target="_blank">Discord</a>. ¡Te esperamos! 👾</p>
       </div>
     </div>
   </main>
