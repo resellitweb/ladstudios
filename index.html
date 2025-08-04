@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html>  
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
@@ -18,6 +18,69 @@
       background: linear-gradient(to bottom right, #000000, #444);
       color: #2d3436;
       padding: 2rem;
+    }
+
+    .navbar {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(20px) saturate(180%) brightness(1.2) contrast(1.2);
+      -webkit-backdrop-filter: blur(20px) saturate(180%) brightness(1.2) contrast(1.2);
+      border-radius: 16px;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    }
+
+    .navbar .nav-left,
+    .navbar .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .navbar a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s, transform 0.3s;
+    }
+
+    .navbar a:hover {
+      color: #74b9ff;
+      transform: scale(1.05);
+    }
+
+    .navbar-logo {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .navbar-logo img {
+      height: 32px;
+    }
+
+    .navbar .download-btn {
+      background: #16a085;
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 30px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: background 0.3s, transform 0.3s ease;
+    }
+
+    .navbar .download-btn:hover {
+      background: #1abc9c;
+      transform: scale(1.1);
     }
 
     header {
@@ -224,6 +287,25 @@
   </script>
 </head>
 <body>
+  <div class="navbar">
+    <div class="nav-left">
+      <div class="navbar-logo">
+        <img src="https://i.imgur.com/byf5yG9.png" alt="Logo" /> EUFONIA STUDIO
+      </div>
+      <a href="#">Minecraft</a>
+      <a href="#">Colaboradores</a>
+      <a href="#">Estadísticas</a>
+      <a href="#">Contacto</a>
+    </div>
+    <div class="nav-right">
+      <a class="download-btn" href="#">⬇ Descargar Eufonia Client</a>
+      <a href="#">🌐</a>
+      <a href="#">🎮</a>
+      <a href="#">⚔️</a>
+      <a href="#">📷</a>
+    </div>
+  </div>
+
   <header>
     <div class="logo-slot">
       <img src="https://i.imgur.com/byf5yG9.png" alt="Logo2">
