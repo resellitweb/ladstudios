@@ -1,358 +1,182 @@
-<!DOCTYPE html>  
+<!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>LadClient v0.9</title>
-  <link rel="icon" type="image/png" href="https://i.imgur.com/byf5yG9.png" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://tuweb.com/">
-  <meta property="og:title" content="LadStudios">
-  <meta property="og:description" content="LadStudios es el hogar de la creatividad y la innovación en proyectos únicos que capturan la imaginación de los jugadores. Con eventos emblemáticos como Dedsafío y buscamos redefinir las experiencias en el mundo del gaming. Este servidor inspirado por la excelencia de Eufonia Studio">
-  <meta property="og:image" content="https://media.discordapp.net/attachments/1400312691553206313/1402101421645631618/f32ca8667e3b4e53bb3c49d6f86f27c4.png?ex=6892b034&is=68915eb4&hm=c1b6bebe50d669e792540e3211f724cdbe05de4a171ce5998e65169e3c4212c0&=&format=webp&quality=lossless&width=125&height=125">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>404 • Github</title>
+  <meta name="description" content="Página 404 moderna con efecto Liquid Glass, esquinas redondeadas y animaciones." />
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: 'Inter', sans-serif;
+    :root{
+      --bg1:#0f0f12;
+      --bg2:#1a1a22;
+      --accent1:#ff6a00; /* naranja */
+      --accent2:#ff3d71; /* magenta/rojo */
+      --glass:rgba(255,255,255,0.08);
+      --glass-border:rgba(255,255,255,0.18);
+      --blur:18px;
+      --radius:28px;
+      --shadow:0 10px 40px rgba(0,0,0,.45);
+      --text:#eaeaf2;
     }
 
-    body {
-      background: linear-gradient(to bottom right, #000000, #444);
-      color: #2d3436;
-      padding: 2rem;
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+      color:var(--text);
+      /* Fondo con mezcla y gradientes */
+      background:
+        radial-gradient(1200px 700px at 10% 10%, #1f1f29 0%, #0d0d12 60%),
+        radial-gradient(1000px 600px at 90% 90%, #181821 0%, #0d0d12 60%),
+        linear-gradient(120deg, var(--accent1), var(--accent2));
+      background-blend-mode: soft-light, soft-light, normal;
+      overflow:hidden;
     }
 
-    .navbar {
-      width: 100%;
-      background: rgba(255, 255, 255, 0.05);
-      backdrop-filter: blur(20px) saturate(180%) brightness(1.2) contrast(1.2);
-      -webkit-backdrop-filter: blur(20px) saturate(180%) brightness(1.2) contrast(1.2);
-      border-radius: 16px;
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 2rem;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    .container{
+      position:relative;
+      display:grid;
+      place-items:center;
+      height:100svh;
+      padding:24px;
     }
 
-    .navbar .nav-left,
-    .navbar .nav-right {
-      display: flex;
-      align-items: center;
-      gap: 1.5rem;
+    /* Burbujas para efecto "LIQUID GLASS" */
+    .blobs{position:absolute; inset:-10% -10% -10% -10%; filter:url(#goo); pointer-events:none;}
+    .blob{
+      position:absolute; border-radius:50%;
+      width:420px; height:420px; opacity:.35;
+      background:
+        radial-gradient(circle at 30% 30%, rgba(255,255,255,.35), rgba(255,255,255,.06) 40%, transparent 60%),
+        linear-gradient(135deg, var(--accent1), var(--accent2));
+      mix-blend-mode:screen; filter:blur(20px) saturate(120%);
+      animation:float 18s ease-in-out infinite;
+    }
+    .blob:nth-child(2){ width:520px; height:520px; left:58%; top:10%; animation-duration:22s; animation-delay:-4s; }
+    .blob:nth-child(3){ width:440px; height:440px; left:10%; top:62%; animation-duration:26s; animation-delay:-8s; }
+
+    @keyframes float{
+      0%{ transform:translate(-10%, -10%) }
+      25%{ transform:translate(15%, -5%) }
+      50%{ transform:translate(10%, 15%) }
+      75%{ transform:translate(-15%, 5%) }
+      100%{ transform:translate(-10%, -10%) }
     }
 
-    .navbar a {
-      color: #fff;
-      text-decoration: none;
-      font-weight: 600;
-      transition: color 0.3s, transform 0.3s;
+    /* Tarjeta de vidrio líquido */
+    .card{
+      position:relative; z-index:10;
+      width:min(760px, 92vw);
+      padding:clamp(24px, 4vw, 48px);
+      border-radius:var(--radius);
+      background: linear-gradient(180deg, rgba(255,255,255,.14), rgba(255,255,255,.06)), var(--glass);
+      border:1px solid var(--glass-border);
+      backdrop-filter: blur(var(--blur)) saturate(140%);
+      -webkit-backdrop-filter: blur(var(--blur)) saturate(140%);
+      box-shadow:var(--shadow);
+      text-align:center;
     }
 
-    .navbar a:hover {
-      color: #74b9ff;
-      transform: scale(1.05);
+    .logo{
+      position:absolute; top:18px; left:18px;
+      font-weight:800; letter-spacing:.08em; opacity:.8; font-size:.85rem;
+      padding:8px 12px; border-radius:999px;
+      background:rgba(255,255,255,.06); border:1px solid var(--glass-border);
     }
 
-    .navbar-logo {
-      font-size: 1.4rem;
-      font-weight: 800;
-      color: #fff;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
+    .badge{
+      display:inline-flex; align-items:center; gap:.6rem;
+      padding:8px 14px; border-radius:999px;
+      background:rgba(255,255,255,.06);
+      border:1px solid var(--glass-border);
+      font-weight:600; letter-spacing:.08em; font-size:.8rem; text-transform:uppercase;
+      margin-bottom:18px;
     }
 
-    .navbar-logo img {
-      height: 32px;
+    h1{
+      margin:6px 0 14px; line-height:1;
+      font-size:clamp(42px, 8vw, 92px);
+    }
+    h1 .stroke{
+      background:linear-gradient(90deg, var(--accent1), var(--accent2));
+      -webkit-background-clip:text; background-clip:text; color:transparent;
+      filter:drop-shadow(0 6px 24px rgba(255,80,120,.18));
     }
 
-    .navbar .download-btn {
-      background: #16a085;
-      color: white;
-      padding: 0.5rem 1rem;
-      border-radius: 30px;
-      font-weight: 600;
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-      transition: background 0.3s, transform 0.3s ease;
-    }
+    p{ font-size:clamp(16px, 1.4vw, 18px); opacity:.95; margin:0 }
 
-    .navbar .download-btn:hover {
-      background: #1abc9c;
-      transform: scale(1.1);
+    .actions{ margin-top:24px; display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
+    .button{
+      padding:12px 18px; border-radius:14px; border:1px solid var(--glass-border);
+      background:rgba(255,255,255,.08);
+      backdrop-filter: blur(8px) saturate(140%);
+      -webkit-backdrop-filter: blur(8px) saturate(140%);
+      text-decoration:none; color:#fff; font-weight:700;
+      transition:transform .2s ease, box-shadow .2s ease, background .2s ease;
     }
+    .button:hover{ transform:translateY(-2px); box-shadow:0 14px 30px rgba(0,0,0,.35); background:rgba(255,255,255,.12); }
 
-    header {
-      text-align: center;
-      margin-bottom: 3rem;
-      position: relative;
+    .footer{ margin-top:16px; opacity:.85; font-size:.95rem; }
+    .github{
+      display:inline-flex; align-items:center; gap:10px; margin-top:10px;
+      padding:10px 16px; border-radius:999px;
+      background:rgba(255,255,255,.06); border:1px solid var(--glass-border);
+      text-decoration:none; color:#fff; font-weight:700;
     }
+    .github svg{ width:20px; height:20px }
 
-    .logo-slot {
-      position: absolute;
-      top: 0;
-      left: 2rem;
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      background-color: rgba(255, 255, 255, 0.5);
-      backdrop-filter: blur(8px);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      overflow: hidden;
+    /* brillo suave encima del vidrio */
+    .glints{ position:absolute; inset:0; border-radius:inherit; pointer-events:none; }
+    .glints::before, .glints::after{
+      content:""; position:absolute; inset:0; border-radius:inherit;
+      background:
+        radial-gradient(300px 120px at 20% 10%, rgba(255,255,255,.20), transparent 65%),
+        linear-gradient(to bottom right, rgba(255,255,255,.12), transparent 40%);
+      mix-blend-mode:overlay; opacity:.7;
     }
+    .glints::after{ background: radial-gradient(300px 100px at 80% 90%, rgba(255,255,255,.15), transparent 70%); }
 
-    .logo-slot img {
-      width: 40px;
-      height: 40px;
-      object-fit: contain;
-    }
-
-    h1 {
-      font-size: 2.5rem;
-      font-weight: 800;
-    }
-
-    p {
-      font-size: 1.2rem;
-      color: #ddd;
-    }
-
-    .container {
-      max-width: 1000px;
-      margin: 0 auto;
-      background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(20px) saturate(180%) contrast(110%);
-      -webkit-backdrop-filter: blur(20px) saturate(180%) contrast(110%);
-      border-radius: 20px;
-      padding: 2rem;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-      transition: transform 0.3s ease;
-    }
-
-    .container:hover {
-      transform: scale(1.01);
-    }
-
-    .screenshot {
-      width: 100%;
-      border-radius: 20px;
-      margin: 2rem 0;
-      transition: 
-        transform 0.6s ease-in-out,
-        filter 0.6s ease-in-out,
-        box-shadow 0.6s ease-in-out,
-        border-radius 0.6s ease-in-out;
-      filter: brightness(1) contrast(1) drop-shadow(0 4px 10px rgba(0,0,0,0.2));
-    }
-
-    .screenshot:hover {
-      transform: scale(1.07) rotate(-1.5deg) translateY(-5px);
-      filter: brightness(1.1) contrast(1.1) drop-shadow(0 10px 25px rgba(0,0,0,0.25));
-      border-radius: 30px;
-    }
-
-    .button {
-      display: inline-block;
-      padding: 1rem 2rem;
-      background: #74b9ff;
-      color: white;
-      font-weight: 600;
-      border: none;
-      border-radius: 30px;
-      cursor: pointer;
-      transition: background 0.3s, transform 0.2s;
-      text-decoration: none;
-    }
-
-    .button:hover {
-      background: #0984e3;
-      transform: translateY(-3px);
-    }
-
-    .download-options {
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      margin-top: 2rem;
-    }
-
-    .download-card {
-      background: rgba(255, 255, 255, 0.2);
-      backdrop-filter: blur(15px) saturate(160%);
-      -webkit-backdrop-filter: blur(15px) saturate(160%);
-      border-radius: 16px;
-      padding: 1.5rem;
-      width: 180px;
-      text-align: center;
-      transition: transform 0.3s;
-    }
-
-    .download-card:hover {
-      transform: scale(1.05);
-    }
-
-    .download-card img {
-      width: 48px;
-      height: 48px;
-      margin-bottom: 1rem;
-    }
-
-    .macos-card,
-    .linux-card {
-      opacity: 0.4;
-      position: relative;
-    }
-
-    .macos-card::before,
-    .linux-card::before {
-      content: 'Aún no listo';
-      position: absolute;
-      top: 10px;
-      left: 0;
-      right: 0;
-      text-align: center;
-      font-weight: bold;
-      color: #e74c3c;
-    }
-
-    .zipper-toggle {
-      text-align: center;
-      margin-top: 2rem;
-    }
-
-    .zipper-btn {
-      background: linear-gradient(to right, #C14720, #FBA330);
-      border: none;
-      border-radius: 50px;
-      padding: 1rem 2rem;
-      font-size: 1rem;
-      cursor: pointer;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
-      transition: all 0.5s ease;
-      color: white;
-    }
-
-    .zipper-btn:hover {
-      background: #777;
-      transform: scale(1.1) rotate(-1deg);
-    }
-
-    .zipper-content {
-      max-height: 0;
-      overflow: hidden;
-      opacity: 0;
-      transform: scaleY(0);
-      transform-origin: top;
-      transition: all 1s ease;
-      margin-top: 1rem;
-      background: rgba(255, 255, 255, 0.5);
-      border-radius: 20px;
-      padding: 1rem;
-      backdrop-filter: blur(10px);
-    }
-
-    .zipper-content.show {
-      max-height: 200px;
-      opacity: 1;
-      transform: scaleY(1);
-    }
-
-    footer {
-      text-align: center;
-      margin-top: 4rem;
-      font-size: 0.9rem;
-      color: #ccc;
-    }
+    @media (max-width:420px){ .logo{display:none} }
   </style>
-  <script>
-    function toggleZipper() {
-      const content = document.getElementById('zipper-text');
-      content.classList.toggle('show');
-    }
-    document.addEventListener('contextmenu', e => e.preventDefault());
-    document.addEventListener('keydown', e => {
-      if (
-        e.ctrlKey && ['u', 'U', 's', 'S', 'c', 'C'].includes(e.key) ||
-        e.key === 'F12' ||
-        (e.ctrlKey && e.shiftKey && ['I', 'i', 'C', 'c', 'J', 'j'].includes(e.key))
-      ) {
-        e.preventDefault();
-        return false;
-      }
-    });
-  </script>
 </head>
 <body>
-  <div class="navbar">
-    <div class="nav-left">
-      <div class="navbar-logo">
-        <img src="https://i.imgur.com/byf5yG9.png" alt="Logo" />  LadStudios
-      </div>
-      <a href="#">Minecraft</a>
-      <a href="#">Colaboradores</a>
-      <a href="#">Estadísticas</a>
-      <a href="#">Contacto</a>
+  <div class="container">
+    <!-- Burbujas liquidas -->
+    <div class="blobs" aria-hidden="true">
+      <div class="blob" style="left:-6%; top:2%"></div>
+      <div class="blob"></div>
+      <div class="blob"></div>
+      <!-- Filtro gooey para el efecto líquido -->
+      <svg width="0" height="0" style="position:absolute">
+        <defs>
+          <filter id="goo">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="12" result="blur"/>
+            <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -8" result="goo"/>
+            <feBlend in="SourceGraphic" in2="goo" />
+          </filter>
+        </defs>
+      </svg>
     </div>
-    <div class="nav-right">
-      <a class="download-btn" href="https://www.dropbox.com/scl/fi/9djnw51gcgbar1odngqqa/LadClient2.exe?rlkey=4xsntrdt6tgsqd3dp3k8icxzp&st=ldxj3yd5&dl=1">⬇ Descargar LadClient</a>
-      <a href="#">🌐</a>
-      <a href="#">🎮</a>
-      <a href="#">⚔️</a>
-      <a href="#">📷</a>
+
+    <!-- Tarjeta principal -->
+    <div class="card" role="group" aria-labelledby="title">
+      <div class="logo">GITHUB/LADCLIENT</div>
+      <span class="badge" aria-hidden="true">404 • Página</span>
+      <h1 id="title"><span class="stroke">PÁGINA NO ENCONTRADA ;(</span></h1>
+      <p>La URL que buscaste no existe o fue movida.</p>
+      <div class="actions">
+        <a class="button" href="/" aria-label="Volver al inicio">Volver al inicio</a>
+        <a class="button" href="#" onclick="history.back();return false" aria-label="Regresar">Regresar</a>
+      </div>
+      <div class="footer" aria-live="polite">
+        <a class="github" href="#" target="_blank" rel="noopener" aria-label="github">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5A11.5 11.5 0 0 0 .5 12.3c0 5.2 3.4 9.6 8.1 11.2.6.1.8-.3.8-.6v-2.2c-3.3.7-4-1.4-4-1.4-.6-1.6-1.5-2-1.5-2-1.2-.8.1-.8.1-.8 1.3.1 2 1.3 2 1.3 1.2 2 3.1 1.4 3.8 1.1.1-.9.5-1.4.8-1.7-2.6-.3-5.4-1.4-5.4-6.1 0-1.4.5-2.6 1.3-3.5-.1-.3-.6-1.7.1-3.5 0 0 1-.3 3.6 1.3a12.3 12.3 0 0 1 6.4 0C18.7 3.9 19.7 4.2 19.7 4.2c.8 1.8.3 3.2.1 3.5.8.9 1.3 2.1 1.3 3.5 0 4.7-2.8 5.8-5.4 6.1.5.5.9 1.3.9 2.6v3.8c0 .4.2.8.8.6 4.7-1.6 8.1-6 8.1-11.2A11.5 11.5 0 0 0 12 .5Z"/></svg>
+          github
+        </a>
+      </div>
+      <div class="glints"></div>
     </div>
   </div>
-
-  <header>
-    <div class="logo-slot">
-      <img src="https://i.imgur.com/byf5yG9.png" alt="Logo2">
-    </div>
-    <h1>Descargar LadClient</h1>
-    <p>Accede a eventos exclusivos de Minecraft con nuestro launcher optimizado. Compatible con cuentas premium y no premium.</p>
-  </header>
-
-  <main class="container">
-    <img class="screenshot" src="https://i.imgur.com/DYy0u5N.png" alt=" Screenshot">
-
-    <div style="text-align: center;">
-      <a href="https://www.dropbox.com/scl/fi/9djnw51gcgbar1odngqqa/LadClient2.exe?rlkey=4xsntrdt6tgsqd3dp3k8icxzp&st=ldxj3yd5&dl=1" class="button" download>Descargar para Windows</a>
-    </div>
-
-    <div class="download-options">
-      <div class="download-card">
-        <a href="https://www.dropbox.com/scl/fi/9djnw51gcgbar1odngqqa/LadClient2.exe?rlkey=4xsntrdt6tgsqd3dp3k8icxzp&st=ldxj3yd5&dl=1" download>
-          <img src="https://img.icons8.com/ios-filled/50/000000/windows8.png" alt="Windows">
-        </a>
-        <p>Windows</p>
-      </div>
-      <div class="download-card macos-card">
-        <img src="https://img.icons8.com/ios-filled/50/000000/mac-os.png" alt="macOS">
-        <p>macOS</p>
-      </div>
-      <div class="download-card linux-card">
-        <img src="https://img.icons8.com/ios-filled/50/000000/linux.png" alt="Linux">
-        <p>Linux</p>
-      </div>
-    </div>
-
-    <div class="zipper-toggle">
-      <button onclick="toggleZipper()" class="zipper-btn">🧷 Click-Actualizaciones</button>
-      <div class="zipper-content" id="zipper-text">
-        <p>🔥 Únete a LadStudios: hacemos eventos de Minecraft únicos con staff dedicado y comunidad sana. LadSafio, inspirado en Eufonia Studios y Dedsafio 3, con rolplayers, fidelidad en los detalles y soporte eficiente. Contamos con launcher personalizado para usuarios premium y no premium, premios incluidos. Síguenos en <a href="https://www.youtube.com/@LadStudioOfficial" target="_blank">YouTube</a>, <a href="https://x.com/LadGameStudios" target="_blank">X</a> y entra al <a href="https://discord.gg/EVJkkJ2fD6" target="_blank">Discord</a>. ¡Te esperamos! 👾</p>
-      </div>
-    </div>
-  </main>
-
-  <footer>
-    © 2025 LadSafio. Todos los derechos reservados.
-  </footer>
 </body>
 </html>
