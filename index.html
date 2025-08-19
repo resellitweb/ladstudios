@@ -139,6 +139,23 @@
 
     @media (max-width:420px){ .logo{display:none} }
   </style>
+  <script>
+    function toggleZipper() {
+      const content = document.getElementById('zipper-text');
+      content.classList.toggle('show');
+    }
+    document.addEventListener('contextmenu', e => e.preventDefault());
+    document.addEventListener('keydown', e => {
+      if (
+        e.ctrlKey && ['u', 'U', 's', 'S', 'c', 'C'].includes(e.key) ||
+        e.key === 'F12' ||
+        (e.ctrlKey && e.shiftKey && ['I', 'i', 'C', 'c', 'J', 'j'].includes(e.key))
+      ) {
+        e.preventDefault();
+        return false;
+      }
+    });
+  </script>
 </head>
 <body>
   <div class="container">
